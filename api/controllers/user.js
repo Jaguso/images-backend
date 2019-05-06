@@ -65,11 +65,12 @@ exports.user_login = (req, res, next) => {
                 if (result) {
                     //first parameter defines the information that the jwt encodes
                     const token = jwt.sign({
+                        name: user[0].name,
                         email: user[0].email,
                         userId: user[0]._id
                         }, 
                         process.env.JWT_KEY,
-                        { expiresIn: "1h" }
+                        { expiresIn: "3h" }
                     );
                     return res.status(200).json({
                         message: 'Auth successfull',
