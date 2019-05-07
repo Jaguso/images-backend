@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const userRoutes = require('./api/routes/user');
+const pictureRoutes = require('./api/routes/picture');
 
 app.use(cors());
 
@@ -25,5 +26,6 @@ mongoose.connect(
 
 
 app.use('/user', userRoutes);
+app.use('/picture', pictureRoutes);
 
 module.exports = app;
