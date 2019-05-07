@@ -15,5 +15,10 @@ exports.picture_create = (req, res, next) => {
                 message: 'Picture created successfully'
             })
         })
-        .catch()
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({
+                error: err
+            });
+        });
 }
