@@ -9,6 +9,10 @@ const userRoutes = require('./api/routes/user');
 
 app.use(cors());
 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+
 mongoose.connect(
     'mongodb://author:' +
     process.env.DB_PASSWORD +
@@ -19,8 +23,6 @@ mongoose.connect(
     }
 );
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
 
 app.use('/user', userRoutes);
 
