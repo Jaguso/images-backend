@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
 const Picture = require('../models/picture');
+const User = require('../models/user');
 
 exports.picture_create = (req, res, next) => {
+
     const picture = new Picture({
         _id: new mongoose.Types.ObjectId(),
         picture: req.body.picture,
