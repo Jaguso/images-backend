@@ -22,3 +22,19 @@ exports.picture_create = (req, res, next) => {
             });
         });
 }
+
+
+exports.picture_get_all = (req, res, next) => {
+    Picture.find()
+        .exec()
+        .then(docs => {
+            console.log(docs);
+            res.status(200).json(docs);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+}
