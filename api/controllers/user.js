@@ -70,7 +70,7 @@ exports.user_login = (req, res, next) => {
                         userId: user[0]._id
                         }, 
                         process.env.JWT_KEY,
-                        { expiresIn: "3h" }
+                        { expiresIn: "24h" }
                     );
                     return res.status(200).json({
                         message: 'Auth successfull',
