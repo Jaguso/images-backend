@@ -4,17 +4,18 @@ const Picture = require('../models/picture');
 const User = require('../models/user');
 
 exports.picture_create = (req, res, next) => {
-
+    console.log(req.file);
     const picture = new Picture({
         _id: new mongoose.Types.ObjectId(),
-        picture: req.body.picture,
+        picture: req.file.path,
         description: req.body.description
     });
     picture.save()
         .then(result => {
             console.log(result); 
             res.status(201).json({
-                message: 'Picture created successfully'
+                message: 'Picture created successfully',
+                pictureId: result._id
             })
         })
         .catch(err => {
