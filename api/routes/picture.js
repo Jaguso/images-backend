@@ -16,8 +16,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage: storage});
 
-
-router.post('/', checkAuth, upload.single('picture'), PictureController.picture_create);
+//missing checkAuth
+router.post('/', upload.single('picture'), PictureController.picture_create);
 router.get('/', PictureController.picture_get_all);
 
 module.exports = router;
