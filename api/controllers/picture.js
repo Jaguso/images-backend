@@ -4,10 +4,9 @@ const Picture = require('../models/picture');
 const User = require('../models/user');
 
 exports.picture_create = (req, res, next) => {
-    console.log(req.file);
     const picture = new Picture({
         _id: new mongoose.Types.ObjectId(),
-        picture: req.file.path,
+        picture: req.body.picture,
         description: req.body.description
     });
     picture.save()

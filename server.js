@@ -7,4 +7,4 @@ const port = process.env.PORT || 9000;
 
 const server = http.createServer(app);
 
-server.listen(port);
+server.listen(port), console.log(`Works on port ${port}`);
