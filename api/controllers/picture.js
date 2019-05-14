@@ -59,5 +59,20 @@ exports.get_one_picture = (req, res, next) => {
             console.log(err);
             res.status(500).json({error: err});
         });
+}
 
+
+exports.picture_delete = (req, res, next) => {
+    const id = req.params.pictureId;
+    Picture.remove({_id: id})
+        .exec()
+        .then(result => {
+            res.status(200).json({
+                message: 'Picture deleted'
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: err});
+        })
 }
