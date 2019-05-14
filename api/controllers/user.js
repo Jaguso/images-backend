@@ -28,8 +28,17 @@ exports.user_signup = (req, res, next) => {
                         user.save()
                             .then(result => {
                                 console.log(result); //this prints user json on the console
+                                const token = jwt.sign({
+                                    name: user.name,
+                                    email: user.email,
+                                    userId: user._id
+                                    }, 
+                                    process.env.JWT_KEY,
+                                    { expiresIn: "24h" }
+                                );
                                 res.status(201).json({
-                                    message: 'User created successfully'
+                                    message: 'User created successfully',
+                                    token: token
                                 })
                             })
                             .catch(err => {
