@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const pictureSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     picture: [{ type: String }],
-    // user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    title: { type: String },
     description: { type: String }    
 });
 

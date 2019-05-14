@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-
 const Picture = require('../models/picture');
-const User = require('../models/user');
+
 
 exports.picture_create = (req, res, next) => {
     const picture = new Picture({
         _id: new mongoose.Types.ObjectId(),
         picture: req.body.picture,
+        title: req.body.title,
         description: req.body.description
     });
     picture.save()
@@ -45,12 +45,12 @@ exports.picture_get_all = (req, res, next) => {
 exports.get_one_picture = (req, res, next) => {
     const id = req.params.pictureId;
     Picture.findById(id)
-        .select('_id picture description')
+        .select('_id picture description title')
         .exec()
         .then(doc => {
             console.log("From data base", doc);
             if (doc) {
-                res.status(200).json({doc})
+                res.status(200).json(doc)
             } else {
                 res.status(404).json({message: 'No valid entry found for provided id'})
             }
