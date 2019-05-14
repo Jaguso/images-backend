@@ -40,3 +40,24 @@ exports.picture_get_all = (req, res, next) => {
             });
         });
 }
+
+
+exports.get_one_picture = (req, res, next) => {
+    const id = req.params.pictureId;
+    Picture.findById(id)
+        .select('_id picture description')
+        .exec()
+        .then(doc => {
+            console.log("From data base", doc);
+            if (doc) {
+                res.status(200).json({doc})
+            } else {
+                res.status(404).json({message: 'No valid entry found for provided id'})
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: err});
+        });
+
+}
