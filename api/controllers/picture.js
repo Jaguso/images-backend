@@ -68,7 +68,8 @@ exports.picture_delete = (req, res, next) => {
         .exec()
         .then(result => {
             res.status(200).json({
-                message: 'Picture deleted'
+                message: 'Picture deleted',
+                id: id
             });
         })
         .catch(err => {

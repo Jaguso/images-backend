@@ -25,7 +25,7 @@ mongoose.connect(
 );
 
 
-app.use('/user', userRoutes);
-app.use('/picture', pictureRoutes);
+app.use('/users', userRoutes);
+app.use('/pictures', pictureRoutes);
 
 module.exports = app;
