@@ -7,7 +7,8 @@ exports.picture_create = (req, res, next) => {
         _id: new mongoose.Types.ObjectId(),
         picture: req.body.picture,
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        user: req.body.user
     });
     picture.save()
         .then(result => {
