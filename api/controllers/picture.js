@@ -46,7 +46,7 @@ exports.picture_get_all = (req, res, next) => {
 exports.get_one_picture = (req, res, next) => {
     const id = req.params.pictureId;
     Picture.findById(id)
-        .select('_id picture description title')
+        .select('_id picture description title user')
         .exec()
         .then(doc => {
             console.log("From data base", doc);
