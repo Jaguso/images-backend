@@ -25,6 +25,7 @@ mongoose.connect(
     }
 );
 
+app.get('env');
 app.get('/', (req, res) => {
     res.send("it works")
 });
