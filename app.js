@@ -25,7 +25,9 @@ mongoose.connect(
     }
 );
 
-
+app.get('/', (req, res) => {
+    res.send("it works")
+});
 app.use('/users', userRoutes);
 app.use('/pictures', pictureRoutes);
 
