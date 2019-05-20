@@ -25,8 +25,8 @@ function shutdown(signal) {
 const app = require('./app');
 
 
-const port = process.env.PORT || 9000;
+// const port = process.env.PORT || 9000;
 
 const server = http.createServer(app);
 
-server.listen(port), console.log(`Works on port ${port}`);
+// server.listen(port), console.log(`Works on port ${port}`);
