@@ -1,7 +1,6 @@
 require('dotenv').config();
 const http = require('http');
 
-const http = require('http');
 
 process
   .on('SIGTERM', shutdown('SIGTERM'))
